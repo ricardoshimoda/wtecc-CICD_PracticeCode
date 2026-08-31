@@ -8,7 +8,6 @@ Test cases can be run with the following:
 from unittest import TestCase
 from service.common import status  # HTTP Status Codes
 from service.routes import app, reset_counters
-import os
 
 
 ######################################################################
@@ -21,8 +20,7 @@ class CounterTest(TestCase):
     def setUpClass(cls):
         """ This runs once before the entire test suite """
         app.testing = True
-        SECRET_KEY = os.urandom(32)
-        app.config['SECRET_KEY'] = SECRET_KEY
+        app.config['WTF_CSRF_ENABLED'] = False
 
     @classmethod
     def tearDownClass(cls):
