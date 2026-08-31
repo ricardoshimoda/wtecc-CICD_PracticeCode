@@ -6,7 +6,7 @@ from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
 csrf = CSRFProtect()
-csrf.init_app(app) # Compliant
+csrf.init_app(app)
 
 # This must be imported after the Flask app is created
 from service import routes               # pylint: disable=wrong-import-position,cyclic-import
